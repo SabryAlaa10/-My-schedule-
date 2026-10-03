@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جدولي الدراسي — المستوى الثالث علوم الحاسب — خريف 2026-2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F6; --surface:#FFFFFF; --surface-2:#F4F6FA; --surface-3:#E9EDF4;
+  --ink:#121D30; --ink-2:#55637B; --ink-3:#8491A6; --line:#DBE1EA;
+  --brand:#16233D; --brand-2:#223457; --gold:#B8862A; --gold-soft:#E9D9B6;
+  --ok:#2C7A4B; --ok-soft:#DCEFE2; --focus:#1F5FBF; --on:#FFFFFF;
+  --radius:12px; --radius-sm:8px;
+  --shadow:0 1px 2px rgba(18,29,48,.05), 0 6px 18px -8px rgba(18,29,48,.12);
+}
+.cHM104{--c:#6D6A1E}.cCS306{--c:#2A6BAE}.cCS307{--c:#86549E}.cCS308{--c:#167068}.cCS309{--c:#A35709}.cCS310{--c:#3F7A28}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0C1422; --surface:#131E31; --surface-2:#182540; --surface-3:#1E2E4D;
+    --ink:#E7ECF6; --ink-2:#9CAAC4; --ink-3:#6E7D98; --line:#243352;
+    --brand:#0E1A2E; --brand-2:#1B2C4C; --gold:#D9AC55; --gold-soft:#3A2E13;
+    --ok:#6FCB8F; --ok-soft:#113524; --focus:#8DBBF2; --on:#0C1422;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 24px -10px rgba(0,0,0,.5);
+  }
+  .cHM104{--c:#C4C06B}.cCS306{--c:#74ABEA}.cCS307{--c:#CA9EDF}.cCS308{--c:#52C7BD}.cCS309{--c:#E8A054}.cCS310{--c:#8FD16C}
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,Arial,sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+bdi{unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+h1,h2,h3{font-weight:700;letter-spacing:-.01em}
+button,input{font-family:inherit}
+
+/* ---------- header ---------- */
+.top{background:linear-gradient(180deg,var(--brand) 0%,var(--brand-2) 100%);color:#fff;padding:34px 0 26px;position:relative}
+.top::after{content:"";position:absolute;inset-inline:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent 70%)}
+.fac{margin:0 0 8px;font-size:13.5px;color:#C4CEE0}
+h1{margin:0 0 14px;font-size:28px;line-height:1.35}
+.meta{display:flex;flex-wrap:wrap;gap:7px 10px;font-size:13px}
+.meta span{padding:3px 12px;border-radius:99px;background:rgba(255,255,255,.1);color:#DCE4F2}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:2px;margin:22px 0 20px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:3px}
+.tabs button{flex:1;appearance:none;background:none;border:0;padding:10px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;border-radius:8px}
+.tabs button[aria-current="page"]{color:var(--brand);background:var(--surface);box-shadow:var(--shadow)}
+@media (prefers-color-scheme: dark){.tabs button[aria-current="page"]{color:var(--ink)}}
+.tabs button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* ---------- generic section heading ---------- */
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:28px 0 12px}
+.sec-h:first-of-type{margin-top:0}
+.sec-h h2{margin:0;font-size:17px}
+.sec-h p{margin:0;font-size:13px;color:var(--ink-2)}
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.stat{background:var(--surface);padding:16px 18px}
+.stat b{display:block;font-size:24px;line-height:1.3;font-weight:700}
+.stat span{font-size:12.5px;color:var(--ink-2)}
+
+/* ---------- picks ---------- */
+.picks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-2);margin:4px 0 2px}
+.mini{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;color:var(--c);background:color-mix(in srgb,var(--c) 11%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 34%,var(--surface))}
+
+/* ---------- toolbar ---------- */
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:4px}
+.btn{appearance:none;font:inherit;font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;box-shadow:var(--shadow)}
+.btn:hover{border-color:var(--ink-3)}
+.btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.btn.quiet{box-shadow:none;background:none;color:var(--ink-2);font-weight:500;text-decoration:underline;padding:4px 0}
+
+/* ---------- chip (schedule) ---------- */
+.chip{background:color-mix(in srgb,var(--c) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--c) 32%,var(--surface));border-inline-start:3px solid var(--c);border-radius:9px;padding:8px 10px;font-size:12.5px;line-height:1.5;display:flex;flex-direction:column;gap:2px}
+.chip.lec{background:var(--c);border-color:var(--c);color:var(--on)}
+.ct{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ct b{font-size:13.5px;color:var(--c);font-weight:700}
+.chip.lec .ct b{color:var(--on)}
+.tag{font-size:10.5px;padding:0 7px;border-radius:99px;border:1px solid currentColor;line-height:1.7;white-space:nowrap;font-weight:600}
+.chip.lec .tag{background:color-mix(in srgb,var(--on) 20%,transparent);border-color:transparent}
+.grp{font-size:11.5px;font-weight:700;margin-inline-start:auto;opacity:.85}
+.cn,.cw{font-weight:500}
+.rc{opacity:.75;font-weight:400}
+.cwho{opacity:.8}
+
+/* ---------- weekly grid ---------- */
+.grid{display:grid;grid-template-columns:72px repeat(5,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.g-head{background:var(--brand);color:#fff;padding:12px 8px;text-align:center;font-weight:700;font-size:13.5px;border-inline-start:1px solid rgba(255,255,255,.1)}
+.g-head.today{box-shadow:inset 0 -3px 0 var(--gold)}
+.g-head small{display:block;font-size:10.5px;font-weight:400;opacity:.8;margin-top:2px}
+.g-corner{border-inline-start:0;font-weight:500;font-size:11.5px;opacity:.8}
+.g-time{padding:10px 6px;text-align:center;font-size:12.5px;font-weight:700;background:var(--surface-2);border-top:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;line-height:1.5}
+.g-time span{font-weight:400;color:var(--ink-2);font-size:11px}
+.g-cell{padding:7px;border-top:1px solid var(--line);border-inline-start:1px solid var(--line);display:flex;flex-direction:column;gap:5px;min-height:98px}
+.g-cell.today{background:color-mix(in srgb,var(--gold) 6%,var(--surface))}
+.g-break{grid-column:1/-1;border-top:1px solid var(--line);background:var(--surface-3);text-align:center;font-size:11.5px;color:var(--ink-2);padding:3px 0}
+.free{color:var(--ink-3);font-size:11.5px;text-align:center;margin:auto 0}
+
+.agenda{display:none;gap:12px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.day h3{margin:0;padding:10px 14px;background:var(--brand);color:#fff;font-size:14.5px;display:flex;align-items:center;gap:10px}
+.day.today h3{box-shadow:inset 0 -3px 0 var(--gold)}
+.now{font-size:10.5px;font-weight:700;background:var(--gold);color:#2A1E04;border-radius:99px;padding:1px 9px}
+.a-row{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:10px 12px;border-top:1px solid var(--line);align-items:start}
+.a-row:first-of-type{border-top:0}
+.a-time{font-size:12.5px;font-weight:700;line-height:1.5;text-align:center;padding-top:5px}
+.a-time span{display:block;font-weight:400;color:var(--ink-2);font-size:11px}
+.note{margin:14px 0 0;font-size:12.5px;color:var(--ink-2)}
+footer{margin:28px 0 44px;font-size:12px;color:var(--ink-3)}
+
+@media (max-width:900px){.grid{display:none}.agenda{display:grid}.stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.wrap{padding:0 15px}h1{font-size:22px}.stats{grid-template-columns:1fr 1fr}.stat{padding:13px 14px}.stat b{font-size:20px}}
+
+/* ====================== TRACKER PAGE ====================== */
+
+/* -- hero stat cards with donut -- */
+.hero-stats{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:26px}
+.hero-stats .hs{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.hs-donut{display:flex;align-items:center;gap:16px}
+.hs-donut svg{flex:none}
+.hs b{font-size:25px;font-weight:700;line-height:1.25}
+.hs span{font-size:12px;color:var(--ink-2)}
+@media (max-width:900px){.hero-stats{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.hero-stats{grid-template-columns:1fr}}
+
+/* -- weekly bar chart -- */
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px 10px;margin-bottom:26px}
+.chart-card h2{margin:0 0 2px;font-size:15.5px}
+.chart-card p.sub{margin:0 0 14px;font-size:12.5px;color:var(--ink-2)}
+.bars{display:flex;align-items:flex-end;gap:10px;height:150px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.bar-track{width:100%;max-width:34px;height:112px;border-radius:7px 7px 3px 3px;background:var(--surface-3);display:flex;align-items:flex-end;overflow:hidden;position:relative}
+.bar-fill{width:100%;border-radius:7px 7px 0 0;background:var(--ink-3);transition:height .15s}
+.bar-fill.full{background:var(--ok)}
+.bar-fill.cur{background:var(--gold)}
+.bar-pct{font-size:10.5px;color:var(--ink-2);font-weight:600}
+.bar-wk{font-size:11.5px;color:var(--ink-2);font-weight:600}
+.bar-col.cur .bar-wk{color:var(--ink);font-weight:700}
+.bar-col{cursor:pointer}
+.bar-col:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+
+/* -- heatmap -- */
+.heat-list{display:flex;flex-direction:column;gap:10px}
+.ribbon{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+.ribbon-head{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.ribbon-head .rh-dot{width:9px;height:9px;border-radius:99px;background:var(--c);flex:none}
+.ribbon-text{flex:1;min-width:0}
+.ribbon-text b{display:block;font-size:13.5px;color:var(--ink);font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ribbon-sub{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px;color:var(--ink-2);margin-top:2px}
+.ribbon-pct{font-size:13px;font-weight:700;color:var(--c);white-space:nowrap;flex:none}
+.ribbon-track{display:flex;gap:5px}
+.wk-cell{flex:1;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.wk-cell:hover{border-color:var(--ink-3)}
+.wk-cell.on{background:var(--c);border-color:var(--c);color:var(--on)}
+.wk-cell:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
+.heat-legend{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-2);margin-top:14px}
+.heat-legend i{width:14px;height:14px;border-radius:4px;border:1px solid var(--line);background:var(--surface-2);display:inline-block}
+.heat-legend i.on{background:var(--ink-3);border-color:var(--ink-3)}
+
+/* -- week checklist panel -- */
+.wk-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin-bottom:26px}
+.wk-panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.wk-panel-head h2{margin:0;font-size:15.5px}
+.wk-switch{display:flex;align-items:center;gap:8px}
+.wk-switch select{font:inherit;font-weight:600;font-size:13.5px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.wk-switch .arrow{appearance:none;border:1px solid var(--line);background:var(--surface-2);border-radius:8px;width:30px;height:30px;cursor:pointer;color:var(--ink-2);font-size:14px;line-height:1}
+.wk-switch .arrow:hover{color:var(--ink)}
+.wk-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.wk-bar{flex:1;height:7px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.wk-bar i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.wk-pct-txt{font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+.chk-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:10px}
+@media (max-width:560px){.chk-list{grid-template-columns:1fr}}
+.chk{display:flex;align-items:flex-start;gap:9px;background:var(--surface-2);border:1px solid var(--line);border-inline-start:3px solid var(--c);border-radius:9px;padding:10px 11px;cursor:pointer;height:100%}
+.chk.done{background:color-mix(in srgb,var(--ok) 10%,var(--surface))}
+.chk input{margin-top:3px;width:17px;height:17px;accent-color:var(--brand);flex:none;cursor:pointer}
+.chk-body{display:flex;flex-direction:column;gap:2px;font-size:13px}
+.chk-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.chk-top b{font-size:13.5px;color:var(--c)}
+.chk.done .chk-body{text-decoration:line-through;text-decoration-color:var(--ink-3);opacity:.6}
+.chk-when{color:var(--ink-2)}
+
+/* -- per-course bars -- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:26px}
+.panel h2{margin:0;padding:14px 20px;font-size:15.5px;border-bottom:1px solid var(--line)}
+.sr{display:grid;grid-template-columns:1fr 120px 70px;gap:12px;align-items:center;padding:11px 20px;border-bottom:1px solid var(--line);font-size:13px}
+.sr:last-child{border-bottom:0}
+.sr-name{display:flex;align-items:center;gap:8px;min-width:0}
+.sr-name .tag{color:var(--c);flex:none}
+.sr-name span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sr-bar{height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.sr-bar i{display:block;height:100%;background:var(--c)}
+.sr-n{font-size:12px;color:var(--ink-2);text-align:start;white-space:nowrap}
+
+/* -- analysis -- */
+.insight{background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px}
+.insight h2{margin:0 0 12px;font-size:15.5px}
+.insight ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.insight li{display:flex;gap:10px;font-size:13.5px;align-items:flex-start}
+.insight li i{width:7px;height:7px;border-radius:99px;background:var(--gold);flex:none;margin-top:7px}
+.insight b{color:var(--ink)}
+.reset-row{text-align:center;margin-top:18px}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff}
+  .no-print{display:none!important}
+  .top{padding:12px 0}
+  h1{font-size:20px;margin-bottom:6px}
+  .grid{display:grid!important}
+  .agenda{display:none!important}
+  .g-cell{min-height:86px}
+  .chip,.day,.panel,.chart-card,.wk-panel,.hero-stats,.insight{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="fac">كلية الحاسبات والمعلومات — جامعة الصالحية الجديدة</p>
+    <h1>جدولي الدراسي</h1>
+    <div class="meta">
+      <span>المستوى الثالث</span>
+      <span>قسم علوم الحاسب</span>
+      <span>الفصل الدراسي 2</span>
+      <span>خريف 2026 – 2027</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="tabs no-print" aria-label="طرق العرض">
+    <button type="button" data-tab="table" aria-current="page">الجدول الأسبوعي</button>
+    <button type="button" data-tab="track">متابعة المذاكرة</button>
+  </nav>
+
+  <!-- ===================== SCHEDULE ===================== -->
+  <section id="v-table">
+    <div class="stats" id="stats"></div>
+    <div class="picks" id="picks"></div>
+    <div class="toolbar no-print"><button type="button" class="btn" id="printBtn">طباعة / حفظ PDF</button></div>
+    <div id="grid" class="grid" style="margin-top:14px"></div>
+    <div id="agenda" class="agenda" style="margin-top:14px"></div>
+    <p class="note">لا توجد حصص يوم السبت، ولا توجد حصص في أي فترة زمنية مكررة. الفاصل بين 1:00 و 1:40 بدون حصص.</p>
+  </section>
+
+  <!-- ===================== TRACKER ===================== -->
+  <section id="v-track" hidden>
+
+    <div class="hero-stats" id="hero-stats"></div>
+
+    <div class="chart-card">
+      <h2>نسبة الإنجاز أسبوعيًا</h2>
+      <p class="sub">كل عمود أسبوع من الـ 12 — اضغط على أي عمود للانتقال لقائمته</p>
+      <div class="bars" id="bars"></div>
+    </div>
+
+    <div class="sec-h">
+      <h2>خريطة المذاكرة الكاملة</h2>
+      <p>اضغط أي مربع عشان تعلّم أو تشيل علامة المذاكرة لحظيًا</p>
+    </div>
+    <div class="panel" style="padding:16px 20px">
+      <div class="heat-list" id="heat"></div>
+      <div class="heat-legend"><i></i> لسه <i class="on"></i> اتذاكرت</div>
+    </div>
+
+    <div class="wk-panel">
+      <div class="wk-panel-head">
+        <h2 id="wk-title">قائمة الأسبوع</h2>
+        <div class="wk-switch no-print">
+          <button type="button" class="arrow" id="wkPrev" aria-label="الأسبوع السابق">‹</button>
+          <select id="wkSelect"></select>
+          <button type="button" class="arrow" id="wkNext" aria-label="الأسبوع التالي">›</button>
+        </div>
+      </div>
+      <div class="wk-bar-row">
+        <div class="wk-bar"><i id="wk-bar" style="width:0%"></i></div>
+        <span class="wk-pct-txt" id="wk-pct"></span>
+      </div>
+      <div class="chk-list" id="chk-list"></div>
+    </div>
+
+    <div class="panel">
+      <h2>التقدّم حسب المادة</h2>
+      <div id="course-prog"></div>
+    </div>
+
+    <div class="insight">
+      <h2>تحليل</h2>
+      <ul id="insights"></ul>
+      <div class="reset-row"><button type="button" class="btn quiet no-print" id="resetBtn">إعادة تصفير كل علامات المذاكرة</button></div>
+    </div>
+
+  </section>
+
+  <footer>المصدر: جدول المحاضرات الرسمي لكلية الحاسبات والمعلومات، خريف 2026 – 2027.</footer>
+</main>
+
+<script>
+(function(){
+  var DAYS=[{k:'sun',n:'الأحد'},{k:'mon',n:'الاثنين'},{k:'tue',n:'الثلاثاء'},{k:'wed',n:'الأربعاء'},{k:'thu',n:'الخميس'}];
+  var SLOTS=[{id:1,from:'9:00',to:'11:00'},{id:2,from:'11:00',to:'1:00'},{id:3,from:'1:40',to:'3:40'}];
+  var ROOMS={'AI Lab':'C1-30','Lab 6':'C2-21'};
+  var NAMES={HM104:'Fund. of Economics',CS306:'Operating System II',CS307:'Knowledge Based System',CS308:'Distributed Systems',CS309:'Machine Learning',CS310:'Computational Intelligence'};
+  var TYPE={lec:'محاضرة',lab:'لاب',sec:'سكشن'};
+
+  // [course, type, group, day, slot, place, instructor]
+  var MY=[
+    ['HM104','lec','A','sun',1,'Hall 8','Dr. Noha Amr'],
+    ['CS310','lab','A2','sun',2,'AI Lab','م. زكريا'],
+
+    ['CS309','lec','A','mon',1,'Hall 0-1','Dr. Hossam'],
+    ['CS306','lab','A2','mon',2,'AI Lab','م. احمد عصام'],
+    ['CS307','lec','A','mon',3,'Hall 0-1','Dr. Walaa'],
+
+    ['CS310','lec','A','tue',1,'Hall 0-1','Dr. Youssef'],
+    ['CS306','lec','A','tue',3,'Hall 0-1','Dr. Yasser'],
+
+    ['CS307','lab','A1','wed',1,'AI Lab','م. نورهان'],
+    ['CS309','lab','A1','wed',2,'Lab 6','م. ابتهال'],
+    ['CS308','lab','A1','wed',3,'AI Lab','م. بسمة'],
+
+    ['CS308','lec','A','thu',1,'Hall 1','Dr. Youssef']
+  ].map(function(r){return {code:r[0],type:r[1],grp:r[2],day:r[3],slot:r[4],place:r[5],who:r[6]};});
+
+  var $=function(id){return document.getElementById(id);};
+  var ltr=function(t){return '<bdi dir="ltr">'+t+'</bdi>';};
+  var cls=function(c){return 'c'+c;};
+  var TODAY=['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
+  var dayWord=function(n){return n===1?'يوم':(n===2?'يومان':n+' أيام');};
+  var DAYIDX={sun:0,mon:1,tue:2,wed:3,thu:4};
+
+  function chip(s){
+    var rc=ROOMS[s.place];
+    return '<div class="chip '+cls(s.code)+' '+s.type+'">'+
+      '<div class="ct"><b>'+s.code+'</b><span class="tag">'+TYPE[s.type]+'</span><span class="grp">'+ltr(s.grp)+'</span></div>'+
+      '<div class="cn">'+ltr(NAMES[s.code])+'</div>'+
+      '<div class="cw">'+ltr(s.place)+(rc?' <span class="rc">'+ltr(rc)+'</span>':'')+'</div>'+
+      '<div class="cwho">'+(/^Dr/.test(s.who)?ltr(s.who):s.who)+'</div></div>';
+  }
+  var at=function(d,sl){return MY.filter(function(s){return s.day===d&&s.slot===sl;});};
+
+  /* ---------- weekly grid ---------- */
+  var h='<div class="g-head g-corner">الوقت</div>';
+  DAYS.forEach(function(d){var t=d.k===TODAY;h+='<div class="g-head'+(t?' today':'')+'">'+d.n+(t?'<small>اليوم</small>':'')+'</div>';});
+  SLOTS.forEach(function(sl){
+    if(sl.id===3)h+='<div class="g-break">فاصل 1:00 – 1:40</div>';
+    h+='<div class="g-time">'+ltr(sl.from)+'<span>'+ltr(sl.to)+'</span></div>';
+    DAYS.forEach(function(d){
+      var items=at(d.k,sl.id);
+      h+='<div class="g-cell'+(d.k===TODAY?' today':'')+'">'+(items.length?items.map(chip).join(''):'<div class="free">فراغ</div>')+'</div>';
+    });
+  });
+  $('grid').innerHTML=h;
+
+  $('agenda').innerHTML=DAYS.map(function(d){
+    var items=MY.filter(function(s){return s.day===d.k;}).sort(function(a,b){return a.slot-b.slot;});
+    var t=d.k===TODAY;
+    return '<article class="day'+(t?' today':'')+'"><h3>'+d.n+(t?'<span class="now">اليوم</span>':'')+'</h3>'+
+      items.map(function(s){var sl=SLOTS[s.slot-1];return '<div class="a-row"><div class="a-time">'+ltr(sl.from)+'<span>'+ltr(sl.to)+'</span></div>'+chip(s)+'</div>';}).join('')+'</article>';
+  }).join('');
+
+  var days={},early={},rooms=[];
+  MY.forEach(function(s){days[s.day]=1;if(s.slot===1)early[s.day]=1;if(s.type!=='lec'&&rooms.indexOf(s.place)<0)rooms.push(s.place);});
+  $('stats').innerHTML=
+    '<div class="stat"><b>'+MY.length+'</b><span>حصة أسبوعيًا</span></div>'+
+    '<div class="stat"><b>'+(MY.length*2)+'</b><span>ساعة أسبوعيًا</span></div>'+
+    '<div class="stat"><b>'+Object.keys(days).length+'</b><span>أيام حضور</span></div>'+
+    '<div class="stat"><b>'+rooms.map(function(r){return ltr(r);}).join('، ')+'</b><span>معامل مستخدمة</span></div>';
+  var seen={};
+  $('picks').innerHTML='<span>المجموعات المختارة:</span>'+MY.filter(function(s){if(s.grp==='A'||seen[s.code])return false;seen[s.code]=1;return true;})
+    .sort(function(a,b){return a.code<b.code?-1:1;})
+    .map(function(s){return '<span class="mini '+cls(s.code)+'">'+s.code+' '+ltr(s.grp)+'</span>';}).join('');
+
+  $('printBtn').addEventListener('click',function(){window.print();});
+
+  /* ============ tab switching ============ */
+  document.querySelector('.tabs').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    var t=b.getAttribute('data-tab');
+    $('v-table').hidden=t!=='table';
+    $('v-track').hidden=t!=='track';
+    var btns=document.querySelectorAll('.tabs button');
+    for(var k=0;k<btns.length;k++){if(btns[k]===b)btns[k].setAttribute('aria-current','page');else btns[k].removeAttribute('aria-current');}
+  });
+
+  /* ============ weekly study tracker ============ */
+  var WEEKS_N=12;
+  var ORDER_IDX=MY.map(function(s,i){return i;}).sort(function(a,b){
+    var sa=MY[a],sb=MY[b];return DAYIDX[sa.day]-DAYIDX[sb.day]||sa.slot-sb.slot;
+  });
+  var TKEY='study-track-l3cs-fall2026-v2';
+  var track={};
+  try{var raw=localStorage.getItem(TKEY);if(raw)track=JSON.parse(raw)||{};}catch(e){track={};}
+  function saveTrack(){try{localStorage.setItem(TKEY,JSON.stringify(track));}catch(e){}}
+  function tk(w,i){return w+'-'+i;}
+  var curWeek=1;
+  try{var wraw=localStorage.getItem(TKEY+'-cur');if(wraw)curWeek=Math.min(WEEKS_N,Math.max(1,parseInt(wraw,10)||1));}catch(e){}
+
+  function weekDoneCount(w){var n=0;for(var i=0;i<MY.length;i++){if(track[tk(w,i)])n++;}return n;}
+  function totalDone(){var n=0;for(var w=1;w<=WEEKS_N;w++)n+=weekDoneCount(w);return n;}
+  var TOTAL_POSSIBLE=MY.length*WEEKS_N;
+
+  /* -- donut -- */
+  function donutSVG(pct,size,stroke,color){
+    var r=(size-stroke)/2,c=2*Math.PI*r,off=c*(1-pct/100);
+    return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" role="img" aria-label="'+pct+'%">'+
+      '<circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="var(--surface-3)" stroke-width="'+stroke+'"/>'+
+      '<circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="'+color+'" stroke-width="'+stroke+'" stroke-linecap="round" '+
+        'stroke-dasharray="'+c+'" stroke-dashoffset="'+off+'" transform="rotate(-90 '+size/2+' '+size/2+')"/>'+
+      '<text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="'+(size*0.24)+'" font-weight="700" fill="var(--ink)">'+pct+'%</text>'+
+      '</svg>';
+  }
+
+  function renderHero(){
+    var done=totalDone(),pct=TOTAL_POSSIBLE?Math.round(done/TOTAL_POSSIBLE*100):0;
+    var fullWeeks=0,streak=0,streakBroken=false;
+    for(var w=1;w<=WEEKS_N;w++){
+      var full=weekDoneCount(w)===MY.length;
+      if(full)fullWeeks++;
+      if(!streakBroken){if(full)streak++;else streakBroken=true;}
+    }
+    var remaining=WEEKS_N-curWeek+1;
+    var avgPerWeek=(done/WEEKS_N).toFixed(1);
+    $('hero-stats').innerHTML=
+      '<div class="hs"><div class="hs-donut">'+donutSVG(pct,78,9,'var(--gold)')+
+        '<div><b>'+done+' / '+TOTAL_POSSIBLE+'</b><span>إجمالي الحصص المذاكرة</span></div></div></div>'+
+      '<div class="hs"><b>'+streak+'</b><span>أسبوع متتالي مكتمل من البداية</span></div>'+
+      '<div class="hs"><b>'+fullWeeks+' / '+WEEKS_N+'</b><span>أسابيع مكتملة بالكامل</span></div>'+
+      '<div class="hs"><b>'+avgPerWeek+'</b><span>متوسط الحصص المذاكرة أسبوعيًا (من '+MY.length+')</span></div>';
+  }
+
+  /* -- weekly bar chart -- */
+  function renderBars(){
+    var h='';
+    for(var w=1;w<=WEEKS_N;w++){
+      var done=weekDoneCount(w),pct=Math.round(done/MY.length*100);
+      var fillCls=pct===100?'full':(w===curWeek?'cur':'');
+      h+='<button type="button" class="bar-col'+(w===curWeek?' cur':'')+'" data-w="'+w+'" title="الأسبوع '+w+': '+done+' من '+MY.length+'">'+
+        '<span class="bar-pct">'+pct+'%</span>'+
+        '<span class="bar-track"><span class="bar-fill '+fillCls+'" style="height:'+pct+'%"></span></span>'+
+        '<span class="bar-wk">'+w+'</span></button>';
+    }
+    $('bars').innerHTML=h;
+  }
+
+  /* -- heatmap -- */
+  function renderHeat(){
+    $('heat').innerHTML=ORDER_IDX.map(function(i){
+      var s=MY[i],sl=SLOTS[s.slot-1],dn=DAYS.filter(function(d){return d.k===s.day;})[0].n;
+      var done=0;for(var w=1;w<=WEEKS_N;w++){if(track[tk(w,i)])done++;}
+      var pct=Math.round(done/WEEKS_N*100);
+      var cells='';
+      for(var w2=1;w2<=WEEKS_N;w2++){
+        var on=!!track[tk(w2,i)];
+        cells+='<button type="button" class="wk-cell'+(on?' on':'')+'" data-i="'+i+'" data-w="'+w2+'" aria-pressed="'+on+'">'+w2+'</button>';
+      }
+      return '<article class="ribbon '+cls(s.code)+'">'+
+        '<div class="ribbon-head"><span class="rh-dot"></span>'+
+          '<div class="ribbon-text"><b>'+ltr(NAMES[s.code])+'</b>'+
+            '<div class="ribbon-sub"><span class="tag">'+TYPE[s.type]+'</span><span>'+dn+' '+ltr(sl.from+'–'+sl.to)+'</span></div></div>'+
+          '<span class="ribbon-pct">'+done+' / '+WEEKS_N+'</span></div>'+
+        '<div class="ribbon-track">'+cells+'</div></article>';
+    }).join('');
+  }
+
+  /* -- week checklist panel -- */
+  function renderWeekSelect(){
+    var opts='';
+    for(var w=1;w<=WEEKS_N;w++)opts+='<option value="'+w+'"'+(w===curWeek?' selected':'')+'>الأسبوع '+w+'</option>';
+    $('wkSelect').innerHTML=opts;
+  }
+  function renderChecklist(){
+    $('wk-title').textContent='قائمة الأسبوع '+curWeek;
+    var done=weekDoneCount(curWeek),total=MY.length,pct=Math.round(done/total*100);
+    $('wk-pct').textContent=done+' / '+total+' — '+pct+'%';
+    $('wk-bar').style.width=pct+'%';
+    $('chk-list').innerHTML=ORDER_IDX.map(function(i){
+      var s=MY[i],sl=SLOTS[s.slot-1],isDone=!!track[tk(curWeek,i)];
+      return '<label class="chk '+cls(s.code)+(isDone?' done':'')+'">'+
+        '<input type="checkbox" data-i="'+i+'"'+(isDone?' checked':'')+'>'+
+        '<span class="chk-body">'+
+          '<span class="chk-top"><b>'+s.code+'</b><span class="tag">'+TYPE[s.type]+'</span><span class="chk-when">'+DAYS.filter(function(d){return d.k===s.day;})[0].n+' '+ltr(sl.from+' – '+sl.to)+'</span></span>'+
+          '<span>'+ltr(NAMES[s.code])+' — '+ltr(s.place)+'</span>'+
+        '</span></label>';
+    }).join('');
+  }
+
+  /* -- per-course bars -- */
+  function renderCourseProg(){
+    var codes=[];MY.forEach(function(s){if(codes.indexOf(s.code)<0)codes.push(s.code);});
+    $('course-prog').innerHTML=codes.map(function(code){
+      return MY.map(function(s,i){return {s:s,i:i};}).filter(function(x){return x.s.code===code;}).map(function(x){
+        var done=0;for(var w=1;w<=WEEKS_N;w++){if(track[tk(w,x.i)])done++;}
+        var pct=Math.round(done/WEEKS_N*100);
+        return '<div class="sr"><div class="sr-name '+cls(code)+'"><span class="tag">'+TYPE[x.s.type]+'</span><span>'+code+' — '+ltr(NAMES[code])+'</span></div>'+
+          '<div class="sr-bar '+cls(code)+'"><i style="width:'+pct+'%"></i></div><div class="sr-n">'+done+' / '+WEEKS_N+' أسبوع</div></div>';
+      }).join('');
+    }).join('');
+  }
+
+  /* -- analysis -- */
+  function renderInsights(){
+    var codes=[];MY.forEach(function(s){if(codes.indexOf(s.code)<0)codes.push(s.code);});
+    var coursePct=codes.map(function(code){
+      var idxs=[];MY.forEach(function(s,i){if(s.code===code)idxs.push(i);});
+      var done=0,possible=idxs.length*WEEKS_N;
+      idxs.forEach(function(i){for(var w=1;w<=WEEKS_N;w++){if(track[tk(w,i)])done++;}});
+      return {code:code,pct:possible?Math.round(done/possible*100):0,done:done,possible:possible};
+    });
+    var done=totalDone(),pct=TOTAL_POSSIBLE?Math.round(done/TOTAL_POSSIBLE*100):0;
+    var items=[];
+
+    if(done===0){
+      items.push('لسه ما بدأتش تسجّل مذاكرة. ابدأ بعلامة ✓ على أول حصة خلصتها من الأسبوع الحالي.');
+    }else{
+      items.push('إنجازك الكلي <b>'+pct+'%</b> من أصل '+TOTAL_POSSIBLE+' حصة على مدار الـ 12 أسبوع ('+done+' حصة اتذاكرت).');
+
+      var best=coursePct.slice().sort(function(a,b){return b.pct-a.pct;})[0];
+      var worst=coursePct.slice().sort(function(a,b){return a.pct-b.pct;})[0];
+      if(best.pct>worst.pct){
+        items.push('أكتر مادة متابع فيها هي <b>'+best.code+'</b> ('+best.pct+'%)، وأقل مادة هي <b>'+worst.code+'</b> ('+worst.pct+'%) — يفضل تدي لها وقت زيادة.');
+      }else if(best.pct>0){
+        items.push('متابعتك متساوية في كل المواد تقريبًا، كل واحدة حوالين <b>'+best.pct+'%</b>.');
+      }
+
+      var fullWeeks=[],partialWeeks=0;
+      for(var w=1;w<=WEEKS_N;w++){var wd=weekDoneCount(w);if(wd===MY.length)fullWeeks.push(w);else if(wd>0)partialWeeks++;}
+      if(fullWeeks.length){
+        var wLabel=fullWeeks.length===1?'الأسبوع':(fullWeeks.length===2?'الأسبوعين':'الأسابيع');
+        items.push('خلّصت بالكامل '+wLabel+' رقم '+fullWeeks.join('، ')+' ('+fullWeeks.length+' من 12).');
+      }
+      if(partialWeeks)items.push('فيه '+partialWeeks+' أسبوع متابَع جزئيًا — جرّب تكمّله عشان السلسلة متتقطعش.');
+
+      var dayTotals={};DAYS.forEach(function(d){dayTotals[d.k]={done:0,possible:0};});
+      MY.forEach(function(s,i){dayTotals[s.day].possible+=WEEKS_N;for(var w=1;w<=WEEKS_N;w++){if(track[tk(w,i)])dayTotals[s.day].done++;}});
+      var dayArr=DAYS.map(function(d){return {n:d.n,pct:dayTotals[d.k].possible?Math.round(dayTotals[d.k].done/dayTotals[d.k].possible*100):0};}).filter(function(x){return x.pct<100 || true;});
+      var weakDay=dayArr.slice().sort(function(a,b){return a.pct-b.pct;})[0];
+      if(weakDay&&done>0)items.push('أضعف يوم في المتابعة هو <b>'+weakDay.n+'</b> ('+weakDay.pct+'%) — خليه في بالك الأسبوع الجاي.');
+    }
+    var remaining=WEEKS_N-curWeek;
+    if(remaining>0)items.push('متبقي <b>'+remaining+' أسبوع</b> لنهاية الـ 12 أسبوع من الفصل الدراسي.');
+
+    $('insights').innerHTML=items.map(function(t){return '<li><i></i><span>'+t+'</span></li>';}).join('');
+  }
+
+  function renderTrack(){
+    renderHero();renderBars();renderHeat();renderWeekSelect();renderChecklist();renderCourseProg();renderInsights();
+  }
+
+  function setWeek(w){
+    curWeek=Math.min(WEEKS_N,Math.max(1,w));
+    try{localStorage.setItem(TKEY+'-cur',curWeek);}catch(e){}
+    renderTrack();
+  }
+  function toggle(w,i){
+    if(track[tk(w,i)])delete track[tk(w,i)];else track[tk(w,i)]=true;
+    saveTrack();renderTrack();
+  }
+
+  $('bars').addEventListener('click',function(e){var b=e.target.closest('.bar-col');if(b)setWeek(parseInt(b.getAttribute('data-w'),10));});
+  $('heat').addEventListener('click',function(e){
+    var b=e.target.closest('.wk-cell');if(!b)return;
+    toggle(parseInt(b.getAttribute('data-w'),10),parseInt(b.getAttribute('data-i'),10));
+  });
+  $('chk-list').addEventListener('change',function(e){
+    if(e.target.tagName!=='INPUT')return;
+    toggle(curWeek,parseInt(e.target.getAttribute('data-i'),10));
+  });
+  $('wkSelect').addEventListener('change',function(e){setWeek(parseInt(e.target.value,10));});
+  $('wkPrev').addEventListener('click',function(){setWeek(curWeek-1);});
+  $('wkNext').addEventListener('click',function(){setWeek(curWeek+1);});
+  $('resetBtn').addEventListener('click',function(){
+    if(!window.confirm('هيتم مسح كل علامات المذاكرة للـ 12 أسبوع. متأكد؟'))return;
+    track={};saveTrack();renderTrack();
+  });
+
+  renderTrack();
+})();
+</script>
+</body>
+</html>
